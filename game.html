@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game1</title>
+</head>
+<body>
+<style>
+    canvas {
+        border: 1px solid;
+    }
+</style>
+    <canvas id="id-canvas" width="800" height="600"></canvas>
+<script>
+
+var imageFromPath = function(path) {
+    var img = new Image()
+    img.src = path
+    return img
+}
+
+var Paddle = function() {
+    var image = imageFromPath('gua.png')
+    var o = {
+        image : image,
+        x : 300,
+        y : 500,
+        speed : 15,
+    }
+    o.moveRight = function() {
+        o.x += o.speed
+    }
+    o.moveLeft = function() {
+        o.x -= o.speed
+    }
+    return o
+}
+
+var Ball = function() {
+    var image = imageFromPath('ball.png')
+    var o = {
+        image : image,
+        x : 300,
+        y : 400,
+        speedX : 10,
+        speedY : 10,
+        fired : false,
+    }
+
+    o.fire = function() {
+        o.fired = true
+    }
+    o.move = function() {
+        if (o.fired) {
+            if (o.x < 0 || o.x > 800){
+                o.speedX *= -1
+            }
+            if (o.y < 0 || o.y > 600){
+                o.speedY *= -1
+            }
+            o.x += o.speedX
+            o.y += o.speedY
+        }
+    }
+
+    return o
+}
+
+
+var GuaGame = function() {
+    var g = {
+        actions : {},
+        keywords : {},
+    }
+    var canvas = document.querySelector('#id-canvas')
+    var context = canvas.getContext('2d')
+    g.canvas = canvas
+    g.context = context
+
+    g.drawImage = function(guaImage) {
+        g.context.drawImage(guaImage.image, guaImage.x, guaImage.y)
+    }
+
+    window.addEventListener('keydown', function(event){
+        g.keywords[event.key] = true
+    })
+
+    window.addEventListener('keyup', function(event){
+        g.keywords[event.key] = false
+    })
+
+    g.registerAction = function(key, callback){
+        g.actions[key] = callback
+    }
+
+    setInterval(function () {
+        var actions = Object.keys(g.actions)
+        for (var i = 0; i < actions.length; i++) {
+            var key = actions[i]
+            if (g.keywords[key]) {
+                g.actions[key]()
+            }
+        }
+        g.update()
+        context.clearRect(0, 0, canvas.width, canvas.height)
+        g.draw()
+    }, 1000/60)
+    return g
+}
+
+var __main = function() {
+    var paddle = Paddle()
+    var ball = Ball()
+    var game = GuaGame()
+
+    var log = console.log.bind(console)
+
+    var leftdown = false
+    var rightdown = false
+
+    game.registerAction('a', function(){
+        log(1111)
+        paddle.moveLeft()
+    })
+
+    game.registerAction('d', function(){
+        paddle.moveRight()
+    })
+
+    game.registerAction('f', function(){
+        ball.fire()
+    })
+
+    game.update = function() {
+        ball.move()
+    }
+
+    game.draw = function() {
+        game.drawImage(paddle)
+        game.drawImage(ball)
+    }
+
+
+}
+
+__main()
+</script>
+</body>
+</html>
