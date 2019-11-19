@@ -33,6 +33,14 @@ var Paddle = function() {
     o.moveLeft = function() {
         o.x -= o.speed
     }
+    o.collide = function(ball) {
+        if (ball.y + ball.image.height > o.y) {
+            if (ball.x > o.x && ball.x < o.x + o.image.width) {
+                return true
+            }
+        }
+        return false
+    }
     return o
 }
 
@@ -133,6 +141,12 @@ var __main = function() {
 
     game.update = function() {
         ball.move()
+        if (paddle.collide(ball)) {
+            ball.speedY *= -1
+        }
+        // if (paddle.collide(ball)) {
+        //     paddle.sppeed
+        // }
     }
 
     game.draw = function() {
