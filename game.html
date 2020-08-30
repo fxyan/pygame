@@ -1,118 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>game1</title>
-    <style>
-        canvas {
-            border: 1px solid;
-        }
-    </style>
-    <script src='utils.js'></script>
-    <script src='guagame.js'></script>
-    <script src='paddle.js'></script>
-    <script src='ball.js'></script>
-    <script src='block.js'></script>
-    <script src='level.js'></script>
-</head>
-<body>
-   
-    <canvas id="id-canvas" width="800" height="600"></canvas>
-    <hr>
-    <input id=id-input-speed type="range" value="1">
-<script>
-var loadlevels = function(n) {
-    var blocks = []
-    n = n - 1
-    var level = levels[n]
-    for (var i = 0; i < level.length; i++) {
-        var position = level[i]
-        var b = Block(position)
-        blocks.push(b)
-    } 
-    return blocks
-
-}
-
-var blocks = []
-
-var enableDebugMode = function(enable) {
-    
-    if (!enable) {
-        return 
-    } 
-    window.paused = false
-    window.addEventListener('keydown', function(event) {
-        var k = event.key
-        if (k == 'p') {
-            paused = !paused
-        } else if ('1234567'.includes(k)) {
-            blocks = loadlevels(Number(k))
-        }
-    })
-
-    //控制滑条进度
-    document.querySelector('#id-input-speed').addEventListener('input', function(event){
-        var input = event.target
-        window.fps = Number(input.value)
-    })
-
-}
-
-var __main = function() {
-    enableDebugMode(true)
-    var game = GuaGame(60)
-    var paddle = Paddle()
-    var ball = Ball()
-    blocks = loadlevels(1)
-
-
-    var leftdown = false
-    var rightdown = false
-
-    game.registerAction('a', function(){
-        paddle.moveLeft()
-    })
-
-    game.registerAction('d', function(){
-        paddle.moveRight()
-    })
-
-    game.registerAction('f', function(){
-        ball.fire()
-    })
-
-    game.update = function() {
-        if (paused) {
-            return 
-        }
-        ball.move()
-        if (paddle.collide(ball)) {
-            ball.反弹()
-        }
-        // 球相撞 
-        for (var i = 0; i < blocks.length; i++) {
-            var b = blocks[i]
-            if (b.collide(ball)) {
-                b.kill()
-                ball.反弹()
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>game 1</title>
+        <style media="screen">
+            canvas {
+                border: 1px black solid;
             }
-        } 
-    }
-
-    game.draw = function() {
-        game.drawImage(paddle)
-        game.drawImage(ball)
-        for (var i = 0; i < blocks.length; i++) {
-            var b = blocks[i]
-            if (b.alive) {
-                game.drawImage(b)
-            } 
-        }
-    }
-}
-
-__main()
-</script>
+        </style>
+        <!-- gua game 相关文件 -->
+        <script src='guagame/utils.js'></script>
+        <script src='guagame/mouse.js'></script>
+        <script src='guagame/gua_game.js'></script>
+        <script src='guagame/gua_scene.js'></script>
+        <!-- 场景文件 -->
+        <script src='scene/main/paddle.js'></script>
+        <script src='scene/main/ball.js'></script>
+        <script src='scene/main/block.js'></script>
+        <script src='scene/main/scene.js'></script>
+        <!-- 结束和标题场景 -->
+        <script src='scene/end/scene_end.js'></script>
+        <script src='scene/title/scene_title.js'></script>
+        <!-- 关卡数据 -->
+        <script src='level.js'></script>
+    </head>
+    <body>
+        <canvas id="id-canvas" width="400" height="300"></canvas>
+        <hr>
+        <input id=id-input-speed type="range" value="1">
+        <div class="">
+            <!-- <textarea id="id-text-log" rows="20" cols="50"></textarea> -->
+        </div>
+        <script src=main.js></script>
     </body>
 </html>
