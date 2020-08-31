@@ -1,6 +1,9 @@
-var Scene = function(game) {
+var Scene = function(game, blocks) {
+    // var blocks = loadLevel(game, 1)
+
     var s = {
         game: game,
+        blocks: blocks,
     }
     // 初始化
     var paddle = Paddle(game)
@@ -8,7 +11,6 @@ var Scene = function(game) {
 
     var score = 0
 
-    var blocks = loadLevel(game, 1)
 
     game.registerAction('a', function(){
         paddle.moveLeft()
@@ -28,6 +30,8 @@ var Scene = function(game) {
         game.drawImage(paddle)
         game.drawImage(ball)
         // draw blocks
+        // log('test block', blocks)
+        blocks = s.blocks
         for (var i = 0; i < blocks.length; i++) {
             var block = blocks[i]
             if (block.alive) {
@@ -84,7 +88,7 @@ var Scene = function(game) {
         var y = event.offsetY
         // log(x, y, 'move')
         if (enableDrag) {
-            log(x, y, 'drag')
+            // log(x, y, 'drag')
             ball.x = x
             ball.y = y
         }

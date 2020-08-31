@@ -1,6 +1,9 @@
-var loadLevel = function(game, n) {
-    n = n - 1
-    var level = levels[n]
+var loadLevel = function(game, n, edit=null) {
+    if (edit == null) {
+        var level = levels[n]
+    } else {
+        var level = edit
+    }
     var blocks = []
     for (var i = 0; i < level.length; i++) {
         var p = level[i]
@@ -9,6 +12,7 @@ var loadLevel = function(game, n) {
     }
     return blocks
 }
+
 
 var enableDebugMode = function(game, enable) {
     if(!enable) {
@@ -22,7 +26,7 @@ var enableDebugMode = function(game, enable) {
             window.paused = !window.paused
         } else if ('1234567'.includes(k)) {
             // 为了 debug 临时加的载入关卡功能
-            blocks = loadLevel(game, Number(k))
+            game.scene.blocks = loadLevel(game, Number(k))
         }
     })
     // 控制速度
