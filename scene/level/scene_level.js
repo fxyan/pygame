@@ -9,6 +9,7 @@ class SceneLevel extends GuaScene {
         this.edit_array = [
             [0, 0,],
         ]
+        this.level_array = levels[0]
         this.blocks = loadLevel(game, 0, this.edit_array)
         this.enableDrag = false
 
@@ -35,10 +36,11 @@ class SceneLevel extends GuaScene {
 
 
     update() {
-        var block = this.blocks[0]
-        log(this.blocks)
+        var block = this.blocks
+        // log(this.blocks[1])
         // log(block)
         var edit_array = this.edit_array
+        var len_array = this.level_array.length + 1
         var enableDrag = this.enableDrag
         var status = false
         // mouse event
@@ -46,8 +48,11 @@ class SceneLevel extends GuaScene {
             var x = event.offsetX
             var y = event.offsetY
             // 检查是否点中了 ball
-            if (block.hasPoint(x, y)) {
+            if (block[0].hasPoint(x, y)) {
                 // 设置拖拽状态
+                if (edit_array.length < len_array) {
+                    edit_array.push([x, y,])
+                }
                 enableDrag = true
             }
         })
@@ -58,23 +63,26 @@ class SceneLevel extends GuaScene {
             // log(enableDrag, 'move')
 
             if (enableDrag) {
-                // log(x, y, 'drag')
-                block.x = x
-                block.y = y
+                log(x, y, 'drag')
+                // block.x = x
+                // block.y = y
+                edit_array[len_array-1][0] = x
+                edit_array[len_array-1][1] = y
+                log(edit_array[len_array-1])
             }
         })
         this.game.canvas.addEventListener('mouseup', function(event) {
             var x = event.offsetX
             var y = event.offsetY
-            if (enableDrag) {
-                status = true
-            }
-            // log(x, y, 'up')
+            // if (enableDrag) {
+            //     status = true
+            // }
+            log(x, y, 'up')
             // log('1', status)
             enableDrag = false
-            if (status) {
-                edit_array.push([x, y,])
-            }
+            // if (status) {
+            //     edit_array.push([x, y,])
+            // }
         })
         // log('2', status)
     }
