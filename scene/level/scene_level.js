@@ -12,43 +12,43 @@ class SceneLevel extends GuaScene {
         this.level_array = levels[0]
         this.blocks = loadLevel(game, 0, this.edit_array)
         this.enableDrag = false
-        var edit_array = this.edit_array
-        var len_array = this.level_array.length + 1
-        var enableDrag = this.enableDrag
-        var block = this.blocks
-        log('test', block, edit_array)
+        // var edit_array = this.edit_array
+        this.len_array = this.level_array.length + 1
+        // var enableDrag = this.enableDrag
+        // var block = this.blocks
+        log('test', this.blocks, this.edit_array)
 
-        game.canvas.addEventListener('mousedown', function(event) {
+        game.canvas.addEventListener('mousedown', event => {
             var x = event.offsetX
             var y = event.offsetY
             // 检查是否点中了 ball
-            if (block[0].hasPoint(x, y)) {
+            if (this.blocks[0].hasPoint(x, y)) {
                 // 设置拖拽状态
-                if (edit_array.length < len_array) {
-                    edit_array.push([x, y,])
-                    block = loadLevel(game, 0, edit_array)
+                if (this.edit_array.length < this.len_array) {
+                    this.edit_array.push([x, y,])
+                    this.blocks = loadLevel(game, 0, this.edit_array)
 
-                    log(block, edit_array)
+                    log(this.blocks, this.edit_array)
                 }
-                enableDrag = true
+                this.enableDrag = true
             }
         })
-        game.canvas.addEventListener('mousemove', function(event) {
+        game.canvas.addEventListener('mousemove', event => {
             var x = event.offsetX
             var y = event.offsetY
             // log(x, y, 'move')
             // log(enableDrag, 'move')
 
-            if (enableDrag) {
-                log(x, y, 'drag', block, edit_array, len_array-1)
-                block[len_array-1].x = x
-                block[len_array-1].y = y
-                edit_array[len_array-1][0] = x
-                edit_array[len_array-1][1] = y
-                log(edit_array[len_array-1])
+            if (this.enableDrag) {
+                log(x, y, 'drag', this.blocks, this.edit_array, this.len_array-1)
+                this.blocks[this.len_array-1].x = x
+                this.blocks[this.len_array-1].y = y
+                this.edit_array[this.len_array-1][0] = x
+                this.edit_array[this.len_array-1][1] = y
+                log(edit_array[this.len_array-1])
             }
         })
-        game.canvas.addEventListener('mouseup', function(event) {
+        game.canvas.addEventListener('mouseup', event => {
             var x = event.offsetX
             var y = event.offsetY
             // if (enableDrag) {
@@ -56,8 +56,8 @@ class SceneLevel extends GuaScene {
             // }
             log(x, y, 'up')
             // log('1', status)
-            enableDrag = false
-            levels[0] = edit_array
+            this.enableDrag = false
+            levels[0] = this.edit_array
             // if (status) {
             //     edit_array.push([x, y,])
             // }
