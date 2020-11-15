@@ -1,10 +1,10 @@
-var config = {
-    player_speed: 10,
-    bullet_speed: 10,
-    cooldown_speed: 10,
-    enemy_bullet_speed: -10,
-    enemy_cooldown_speed: 20,
-}
+// var config = {
+//     player_speed: 10,
+//     bullet_speed: 10,
+//     cooldown_speed: 10,
+//     enemy_bullet_speed: -10,
+//     enemy_cooldown_speed: 20,
+// }
 
 
 

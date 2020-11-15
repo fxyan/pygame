@@ -13,10 +13,10 @@ class GuaGame {
         // events
         var self = this
         window.addEventListener('keydown', event => {
-            this.keydowns[event.key] = true
+            this.keydowns[event.key] = 'down'
         })
         window.addEventListener('keyup', function(event){
-            self.keydowns[event.key] = false
+            self.keydowns[event.key] = 'up'
         })
         this.init()
     }
@@ -44,13 +44,18 @@ class GuaGame {
     runloop() {
         // log(window.fps)
         // events
+        // log(this.keydowns)
         var g = this
         var actions = Object.keys(g.actions)
         for (var i = 0; i < actions.length; i++) {
             var key = actions[i]
-            if(g.keydowns[key]) {
+            var status = g.keydowns[key]
+            if(status == 'down') {
                 // 如果按键被按下, 调用注册的 action
-                g.actions[key]()
+                g.actions[key]('down')
+            } else if (status == 'up') {
+                g.actions[key]('up')
+                g.keydowns[key] = null
             }
         }
         // update
@@ -106,9 +111,9 @@ class GuaGame {
                 g.images[name] = img
                 // 所有图片都成功载入之后, 调用 run
                 loads.push(1)
-                log('load images', loads.length, names.length)
+                // log('load images', loads.length, names.length)
                 if (loads.length == names.length) {
-                    log('load images', g.images)
+                    // log('load images', g.images)
                     g.__start()
                 }
             }

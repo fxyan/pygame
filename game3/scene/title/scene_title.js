@@ -1,103 +1,139 @@
-class GuaLable {
-    constructor(game, text) {
-        this.game = game
-        this.text = text
-    }
-
-    static new(game, text) {
-        return new this(game, text)
-    }
-
-    draw() {
-        // draw labels
-        this.game.context.fillText(this.text, 100, 190)
-    }
-
-    update() {
-
-    }
-}
-
-class GuaParticle extends GuaImage {
-    constructor(game) {
-        super(game, 'fire')
-        this.setup()
-    }
-
-    setup() {
-        this.life = 20
-    }
-
-    init(x, y, vx, vy) {
-        this.x = x
-        this.y = y
-        this.vx = vx
-        this.vy = vy
-    }
-
-    update() {
-        this.life--
-        this.x += this.vx
-        this.y += this.vy
-        var factor = 0.02
-        this.vx += factor *  this.vx
-        this.vy += factor * this.vy
-    }
-}
-
-class GuaParticleSystem {
+class Pipes {
     constructor(game) {
         this.game = game
-        this.setup()
-    }
+        this.pipes = []
+        this.pipeSpace = 150
+        this.管子横向间距 = 200
+        this.columsOfPipe = 3
+        for (var i = 0; i < this.columsOfPipe; i++) {
+            var p1 = GuaImage.new(game, 'p2')
+            p1.flipy = true
+            p1.x = 500 + i * this.管子横向间距
+            var p2 = GuaImage.new(game, 'p1')
+            p2.x = p1.x
+            this.resetPipesPosition(p1, p2)
+            this.pipes.push(p1)
+            this.pipes.push(p2)
+            // var p3 = GuaImage.new(game)
 
+
+        }
+    }
     static new(game) {
         return new this(game)
     }
-
-    setup() {
-        this.x = 200
-        this.y = 300
-        this.numberOfParticles = 20
-        this.particles = []
+    resetPipesPosition(p1, p2) {
+        p1.y = randonBetween(-200, 0)
+        p2.y = p1.y + p1.h + this.pipeSpace
     }
-
-    draw() {
-        // draw labels
-        for(var p of this.particles) {
-            p.draw()
-        }
+    debug() {
+        this.管子横向间距 = config.管子横向间距.value
+        this.pipeSpace = config.pipe_space.value
     }
-
     update() {
-        // 添加小火花
-        if (this.particles.length < this.numberOfParticles) {
-            var p = GuaParticle.new(this.game)
-            var s = 2
-            var vx = randonBetween(-s, s)
-            var vy = randonBetween(-s, s)
-            p.init(this.x, this.y, vx, vy)
-            this.particles.push(p)
+        for (var i = 0; i < this.pipes.length / 2; i += 2) {
+            var p1 = this.pipes[i]
+            var p2 = this.pipes[i+1]
+            p1.x -= 5
+            p2.x -= 5
+            if (p1.x < -100) {
+                p1.x += this.管子横向间距 * this.columsOfPipe
+            }
+            if (p2.x < -100) {
+                p2.x += this.管子横向间距 * this.columsOfPipe
+                this.resetPipesPosition(p1, p2)
+            }
         }
-        // 更新小火花
-        for(var p of this.particles) {
-            p.update()
+    }
+    draw() {
+        var context = this.game.context
+        for (var p of this.pipes){
+            context.save()
+
+            var w2 = p.w / 2
+            var h2 = p.h /2
+            context.translate(p.x + w2, p.y + h2)
+            var scaleX = p.flipx ? -1 : 1
+            var scaleY = p.flipx ? -1 : 1
+            context.scale(scaleX, scaleY)
+
+            context.rotate(p.rotation * Math.PI / 180)
+            context.translate(-w2, -h2)
+
+            context.drawImage(p.texture, 0, 0)
+            context.restore()
         }
-        // 删除死掉的小火花
-        this.particles = this.particles.filter(p => p.life > 0)
     }
 }
-
 
 
 class SceneTitle extends GuaScene {
     constructor(game) {
         super(game)
-        var lable = GuaLable.new(game, 'hello')
-        this.addElement(lable)
+        // var lable = GuaLable.new(game, 'hello from gua')
+        // this.addElement(lable)
 
-        var ps = GuaParticleSystem.new(game)
-        this.addElement(ps)
+        var bg = GuaImage.new(game, 'bg')
+        this.addElement(bg)
+        //加入水管
+        this.pipe = Pipes.new(game)
+        this.addElement(this.pipe)
+
+        this.grounds = []
+        for (var i = 0; i < 30; i++) {
+            var g = GuaImage.new(game, 'ground')
+            g.x = i * 19
+            g.y = 500
+            this.addElement(g)
+            this.grounds.push(g)
+
+        }
+        this.skipCount = 4
+        this.birdSpeed = 2
+        var b = GuaAnimation.new(game)
+        b.x = 100
+        b.y = 200
+        this.bird = b
+        this.addElement(b)
+
+        this.setupInputes()
+
+    }
+    debug() {
+        this.birdSpeed = config.bird_speed.value
+    }
+    update() {
+        super.update()
+        this.skipCount--
+        var offset = -5
+        if (this.skipCount == 0) {
+            this.skipCount = 4
+            offset = 15
+        }
+        for (var i = 0; i < 30; i++){
+            var g = this.grounds[i]
+            g.x += offset
+            g.y = 500
+            this.addElement(g)
+            this.grounds.push(g)
+        }
+    }
+    setupInputes() {
+        var self = this
+        var b = this.bird
+        this.game.registerAction('j', function(keyStatus){
+            log('keyStatus', keyStatus)
+            b.jump()
+        })
+        this.game.registerAction('a', function(keyStatus){
+            log('keyStatus', keyStatus)
+            b.move(-self.birdSpeed, keyStatus)
+        })
+        this.game.registerAction('d', function(keyStatus){
+            log('keyStatus', keyStatus)
+
+            b.move(self.birdSpeed, keyStatus)
+        })
     }
     // draw() {
         // draw labels
