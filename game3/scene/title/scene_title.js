@@ -141,3 +141,33 @@ class SceneTitle extends GuaScene {
 
     // }
 }
+
+class Scenfly extends GuaScene {
+    constructor(game) {
+        super(game)
+        game.registerAction('k', function(){
+            var s = SceneTitle.new(game)
+            game.replaceScene(s)
+        })
+
+        var bg = GuaImage.new(game, 'bg')
+        this.addElement(bg)
+        var g = GuaImage.new(game, 'message')
+        g.x = 120
+        g.y = 130
+        this.addElement(g)
+        this.grounds = []
+        for (var i = 0; i < 30; i++) {
+            var g = GuaImage.new(game, 'ground')
+            g.x = i * 19
+            g.y = 500
+            this.addElement(g)
+            this.grounds.push(g)
+        }
+
+
+    }
+    // draw() {
+    //
+    // }
+}

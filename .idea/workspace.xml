@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a75b0798-3194-4025-ad7a-f62db0c4e43a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/game3/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game3/guagame/gua_animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game3/guagame/gua_lable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game3/game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_image.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_particle_system.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_particle_system.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_scene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game3/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/scene/main/scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/scene/main/scene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game3/scene/title/scene_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/scene/title/scene_title.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +65,7 @@
       <workItem from="1604546275267" duration="757000" />
       <workItem from="1604549492627" duration="1712000" />
       <workItem from="1604905695453" duration="547000" />
-      <workItem from="1604918155942" duration="13244000" />
+      <workItem from="1604918155942" duration="14551000" />
     </task>
     <servers />
   </component>
