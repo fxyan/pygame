@@ -11,4 +11,8 @@ const config = {
         _comment: '鸟的速度',
         value: 2,
     },
+    readme: {
+        _comment: '按k开始 j跳跃 按l回到开始界面',
+        value: 2,
+    },
 }

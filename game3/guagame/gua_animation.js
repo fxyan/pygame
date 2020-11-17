@@ -29,10 +29,12 @@ class GuaAnimation {
         return this.animations[this.animationName]
     }
     jump() {
-        this.vy = -10
+        if (this.y > 0) {
+            this.vy = -10
+        }
         this.rotation = -90
     }
-    update() {
+    update(ground) {
         if (this.alpha > 0) {
             this.alpha -= 0.05
         }
@@ -53,6 +55,20 @@ class GuaAnimation {
             this.frameIndex = (this.frameIndex + 1) % this.frames().length
             this.texture = this.frames()[this.frameIndex]
         }
+        // if(this.animations['idle'].length > 0 && ground.length > 0) {
+        //     for (var i = 0; i < this.animations['idle'].length; i++) {
+        //         var e = this.animations['idle'][i]
+        //         for (var j = 0; j < ground.length; j++) {
+        //             var c = ground[j]
+        //             var type = this.collide(e, c)
+        //             log('bird_ground', type)
+        //             if (type === true) {
+        //                 log('bird_ground', type)
+        //             }
+        //             // log('enemy_type', i, type)
+        //         }
+        //     }
+        // }
     }
     draw() {
         var context = this.game.context
@@ -85,5 +101,19 @@ class GuaAnimation {
     }
     changeAnimation(name) {
         this.animationName = name
+    }
+    aInb(x, x1, x2) {
+        return x >= x1 && x <= x2
+    }
+
+    collide(bird, pipe) {
+        var a = pipe
+        var b = bird
+        if (this.aInb(a.x, b.x, b.x + b.w) || this.aInb(b.x, a.x, a.x + a.w)) {
+            if (this.aInb(a.y, b.y, b.y + b.h) || this.aInb(b.y, a.y, a.y + a.h)) {
+                return true
+            }
+        }
+        return false
     }
 }
