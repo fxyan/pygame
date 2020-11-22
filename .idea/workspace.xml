@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a75b0798-3194-4025-ad7a-f62db0c4e43a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_animation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_image.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_scene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/scene/title/scene_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/scene/title/scene_title.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game2/scene/main/scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game2/scene/main/scene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +65,7 @@
       <workItem from="1604549492627" duration="1712000" />
       <workItem from="1604905695453" duration="547000" />
       <workItem from="1604918155942" duration="26372000" />
+      <workItem from="1605765966652" duration="1740000" />
     </task>
     <servers />
   </component>
@@ -91,7 +89,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/game3/guagame/gua_animation.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

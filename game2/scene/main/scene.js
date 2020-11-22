@@ -3,7 +3,7 @@ var config = {
     bullet_speed: 10,
     cooldown_speed: 10,
     enemy_bullet_speed: -10,
-    enemy_cooldown_speed: 40,
+    enemy_cooldown_speed: 70,
 }
 
 
@@ -20,7 +20,7 @@ class Scene extends GuaScene {
     }
     step() {
         var game = this.game
-        this.numberOfEnemis = 3
+        this.numberOfEnemis = 2
         this.bg = GuaImage.new(game, 'background')
         this.player = Player.new(game)
         this.player.x = 150
@@ -207,12 +207,13 @@ class Enemy extends GuaImage {
                 var type = this.collide(e)
                  if(type === true){
                     log('player_enemy_boom', type)
-                    enemy_array.splice(enemy_num, 1)
                     player_array.splice(0, 1)
                     var ps1 = GuaParticleSystem.new(scene.game, e.x, e.y)
                     var ps2 = GuaParticleSystem.new(scene.game, this.x, this.y)
                     scene.addElementFireSystem(ps1)
                     scene.addElementFireSystem(ps2)
+                    enemy_array[enemy_num].y = 800
+
                 }
                 // log('enemy_type', i, type)
             }
@@ -224,10 +225,11 @@ class Enemy extends GuaImage {
                 var bullet_enemy_type = this.collide(x)
                  if(bullet_enemy_type === true){
                     log('player_bullet_enemy_boom', bullet_enemy_type)
-                    enemy_array.splice(enemy_num, 1)
                     player_bullet_array.splice(o, 1)
                     var ps1 = GuaParticleSystem.new(scene.game, this.x, this.y)
                     scene.addElementFireSystem(ps1)
+                    enemy_array[enemy_num].y = 800
+
                 }
                 // if (bullet_enemy_type === true) {
                 //     delete_bullet.push(o)
