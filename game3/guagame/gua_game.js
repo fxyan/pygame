@@ -42,7 +42,7 @@ class GuaGame {
         this.actions[key] = callback
     }
     runloop() {
-        // log(window.fps)
+        log('runloop', window.fps)
         // events
         // log(this.keydowns)
         var g = this
@@ -82,10 +82,12 @@ class GuaGame {
         return img
     }
     runWithScene(scene) {
+        log('window', window.fps)
         var g = this
         g.scene = scene
         // 开始运行程序
         setTimeout(function(){
+            log('window', 1000/window.fps)
             g.runloop()
         }, 1000/window.fps)
     }

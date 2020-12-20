@@ -85,12 +85,12 @@ class GuaScene {
                 // l.update()
             // }
         }
-        for (var i = 0; i < this.element_array.length; i++){
-            var e = this.element_array[i]
-            // log('n', n.name)
-
-            e.update(this.birds)
-        }
+        // for (var i = 0; i < this.element_array.length; i++){
+        //     var e = this.element_array[i]
+        //     // log('n', n.name)
+        //
+        //     e.update(this.birds)
+        // }
         for (var k = 0; k < this.pipes.length; k++){
             // log('fire', this.fire_system)
             var l = this.pipes[k]
@@ -108,7 +108,7 @@ class GuaScene {
             // log('fire', this.fire_system)
             var m = this.birds[j]
             // log('fire', b)
-            m.update(this.grounds)
+            m.update()
         }
 
 

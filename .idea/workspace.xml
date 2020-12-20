@@ -3,7 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a75b0798-3194-4025-ad7a-f62db0c4e43a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game2/scene/main/scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game2/scene/main/scene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game3/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game3/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game3/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_animation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_scene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game3/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game3/scene/title/scene_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/scene/title/scene_title.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +74,9 @@
       <workItem from="1604549492627" duration="1712000" />
       <workItem from="1604905695453" duration="547000" />
       <workItem from="1604918155942" duration="26372000" />
-      <workItem from="1605765966652" duration="1740000" />
+      <workItem from="1605765966652" duration="3483000" />
+      <workItem from="1606295839550" duration="2582000" />
+      <workItem from="1608431640598" duration="6164000" />
     </task>
     <servers />
   </component>
@@ -78,11 +89,11 @@
     </state>
     <state x="104" y="1" key="SettingsEditor/0.0.1440.900/1440.-1020.1080.1920@0.0.1440.900" timestamp="1603694803752" />
     <state x="104" y="1" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1603190845062" />
-    <state x="343" y="142" width="754" height="616" key="find.popup" timestamp="1605452052161">
+    <state x="456" y="180" width="754" height="656" key="find.popup" timestamp="1608439447095">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="1697" y="-717" width="722" height="1315" key="find.popup/0.0.1440.900/1440.-1020.1080.1920@1440.-1020.1080.1920" timestamp="1604540365861" />
-    <state x="343" y="142" width="754" height="616" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1605452052161" />
+    <state x="456" y="180" width="754" height="656" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1608439447095" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -90,6 +101,12 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/game3/guagame/gua_animation.js</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/game3/guagame/gua_game.js</url>
+          <line>88</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

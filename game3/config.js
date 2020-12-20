@@ -12,7 +12,7 @@ const config = {
         value: 2,
     },
     readme: {
-        _comment: '按k开始 j跳跃 按l回到开始界面',
+        _comment: '按k开始 j跳跃 死亡后按k重新开始',
         value: 2,
     },
 }

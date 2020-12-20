@@ -41,6 +41,7 @@ class GuaAnimation {
         // 更新受力
         this.y += this.vy
         this.vy += this.gy * 0.2
+        // log('受力', this.y, this.vy)
         var h = 470
         if (this.y > h) {
             this.y = h

@@ -127,7 +127,6 @@ class SceneTitle extends GuaScene {
         b.y = 200
         this.bird = b
         this.addElementBirds(b)
-
         this.setupInputes()
 
     }
@@ -224,7 +223,6 @@ class Scenfly extends GuaScene {
             var s = SceneTitle.new(game)
             game.replaceScene(s)
         })
-
         var bg = GuaImage.new(game, 'bg')
         this.addElementPipes(bg)
         var g = GuaImage.new(game, 'message')
@@ -248,19 +246,6 @@ class Scenfly extends GuaScene {
 class scenend extends GuaScene {
     constructor(game) {
         super(game)
-        game.registerAction('l', function(){
-            // this.grounds.length = 0
-            // this.birds.length = 0
-            // this.element_array.length = 0
-            // this.pipes.length = 0
-            // log('test', this.grounds, this.birds, this.element_array, this.pipes)
-
-
-            // this.clearArray()
-            var s = Scenfly.new(g)
-            g.runWithScene(s)
-        })
-
         var bg = GuaImage.new(game, 'bg')
         this.addElementPipes(bg)
         var g = GuaImage.new(game, 'gameover')

@@ -28,7 +28,7 @@ var enableDebugMode = function(game, enable) {
     // 控制速度
     document.querySelector('#id-input-speed').addEventListener('input', function(event) {
         var input = event.target
-        // log(event, input.value)
+        log('test', event, input.value)
         window.fps = Number(input.value)
     })
 }
@@ -92,10 +92,6 @@ var __main = function() {
         message: 'img/bird/message.png',
         gameover: 'img/bird/gameover.png',
         foreground: 'img/bird/foreground.png',
-
-
-
-
 
     }
     var game = GuaGame.instance(30, images, function(g){
