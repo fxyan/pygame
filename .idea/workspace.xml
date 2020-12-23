@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a75b0798-3194-4025-ad7a-f62db0c4e43a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game3/game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_animation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/guagame/gua_scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/guagame/gua_scene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game3/scene/title/scene_title.js" beforeDir="false" afterPath="$PROJECT_DIR$/game3/scene/title/scene_title.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game2/guagame/gua_scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game2/guagame/gua_scene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game2/scene/main/scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/game2/scene/main/scene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +68,7 @@
       <workItem from="1604918155942" duration="26372000" />
       <workItem from="1605765966652" duration="3483000" />
       <workItem from="1606295839550" duration="2582000" />
-      <workItem from="1608431640598" duration="6164000" />
+      <workItem from="1608431640598" duration="8463000" />
     </task>
     <servers />
   </component>
@@ -84,6 +76,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="205" y="140" key="IDE.errors.dialog" timestamp="1608518183451">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="205" y="140" key="IDE.errors.dialog/0.0.1440.900/1440.-1020.1080.1920@0.0.1440.900" timestamp="1608518183451" />
     <state x="104" y="1" key="SettingsEditor" timestamp="1603694803752">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

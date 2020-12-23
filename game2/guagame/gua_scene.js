@@ -80,7 +80,7 @@ class GuaScene {
         }
         for (var s = 0; s < this.enemy_bullet_array.length; s++){
             var x = this.enemy_bullet_array[s]
-            x.update()
+            x.update(this.enemy_bullet_array, this.player_bullet_array)
         }
         for (var d = 0; d < this.player_bullet_array.length; d++){
             var c = this.player_bullet_array[d]

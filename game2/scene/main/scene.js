@@ -89,11 +89,40 @@ class EnemyBullet extends GuaImage {
     setup() {
         this.speed = 1
     }
-    update() {
+    update(enemy_bullet_array, player_bullet_array) {
         this.speed = config.enemy_bullet_speed
         this.y -= this.speed
+        if(enemy_bullet_array.length > 0 && player_bullet_array.length > 0){
+            for (var i = 0; i < enemy_bullet_array.length; i++){
+                for (var j = 0; j < player_bullet_array.length; j++){
+                    var e = enemy_bullet_array[i]
+                    var x = player_bullet_array[j]
+                    var bullet_player_type = this.collide(e, x)
+                    if(bullet_player_type === true){
+                        // log('enemy_bullet_player_boom', bullet_player_type)
+                        enemy_bullet_array.splice(i, 1)
+                        player_bullet_array.splice(j, 1)
+                        log(enemy_bullet_array, player_bullet_array)
+                    }
+                }
+            }
+        }
     }
 
+    aInb(x, x1, x2) {
+        return x >= x1 && x <= x2
+    }
+
+    collide(player_bullet, enemy_bullet) {
+        var a = enemy_bullet
+        var b = player_bullet
+        if (this.aInb(a.x, b.x, b.x + b.w) || this.aInb(b.x, a.x, a.x + a.w)) {
+            if (this.aInb(a.y, b.y, b.y + b.h) || this.aInb(b.y, a.y, a.y + a.h)) {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 
